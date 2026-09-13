@@ -61,7 +61,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-stamp: var(--stamp);
   --color-stamp-foreground: var(--stamp-foreground);
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-serif: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, monospace;
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 }
@@ -150,14 +150,12 @@
     font-family: var(--font-sans);
   }
 
-  h1 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-  }
-
+  h1,
   h2,
   h3 {
     font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.015em;
   }
 }
 
