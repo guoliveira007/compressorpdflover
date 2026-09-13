@@ -61,7 +61,7 @@ export async function compressPdf(
     onProgress(i, total);
   }
 
-  await doc.destroy();
+  await doc.cleanup();
   const saved = await out.save({ useObjectStreams: true });
   return { blob: new Blob([saved as unknown as BlobPart], { type: "application/pdf" }), pages: total };
 }
