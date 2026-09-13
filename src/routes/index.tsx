@@ -3,6 +3,7 @@ import { useCallback, useRef, useState } from "react";
 import { FileText, Upload, Lock, RotateCcw, Download } from "lucide-react";
 
 import { PRESETS, PRESET_ORDER, compressPdf, formatBytes, type PresetId } from "@/lib/compress-pdf";
+import { AD_SLOTS, AdSlot } from "@/components/AdSlot";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,6 +86,16 @@ function Index() {
   return (
     <div className="paper-grain min-h-screen">
       <TopNav />
+      {AD_SLOTS.sidebarLeft && (
+        <aside className="fixed left-4 top-28 z-10 hidden w-[160px] xl:block">
+          <AdSlot slot={AD_SLOTS.sidebarLeft} format="vertical" />
+        </aside>
+      )}
+      {AD_SLOTS.sidebarRight && (
+        <aside className="fixed right-4 top-28 z-10 hidden w-[160px] xl:block">
+          <AdSlot slot={AD_SLOTS.sidebarRight} format="vertical" />
+        </aside>
+      )}
       <div className="relative z-10 mx-auto max-w-3xl px-6 pb-14 pt-8">
         <header className="border-b border-border pb-8">
           <p className="text-sm font-semibold text-stamp">Edição local, sem servidores</p>
@@ -302,6 +313,10 @@ function Index() {
             </div>
           </section>
         </main>
+
+        {AD_SLOTS.footer && (
+          <AdSlot slot={AD_SLOTS.footer} format="horizontal" className="mt-14" />
+        )}
 
         <footer className="mt-14 border-t border-border pt-6 text-base text-muted-foreground">
           Processamento local. Nenhum upload.

@@ -6,4 +6,4 @@
 - [x] Tipografia mais simples e legível (referência: ilovepdf.com), menos ornamento
 
 ## Próximas
-- [ ] Implementar anúncios (monetização) no site
+- [x] Implementar anúncios (monetização) no site
