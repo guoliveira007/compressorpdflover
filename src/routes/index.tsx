@@ -311,6 +311,31 @@ function Index() {
   );
 }
 
+function TopNav() {
+  return (
+    <nav className="relative z-20 border-b border-border bg-background/90 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+        <a href="/" className="flex items-center gap-3">
+          <img
+            src="/favicon.svg"
+            alt=""
+            className="h-8 w-8"
+            width="32"
+            height="32"
+          />
+          <span className="text-xl font-semibold tracking-tight text-foreground">
+            Compressor de PDF
+          </span>
+        </a>
+        <span className="hidden items-center gap-2 text-sm font-medium text-muted-foreground sm:inline-flex">
+          <Lock className="h-3 w-3 text-stamp" aria-hidden />
+          100% no navegador
+        </span>
+      </div>
+    </nav>
+  );
+}
+
 function SectionTitle({ index, title }: { index: string; title: string }) {
   return (
     <div className="flex items-baseline gap-3 border-b border-border pb-2">
