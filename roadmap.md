@@ -4,3 +4,6 @@
 - [x] Upload por arrastar/selecionar, slider de 3 níveis, progresso, resultado, download, reset
 - [x] Bloco de conteúdo SEO
 - [x] Tipografia mais simples e legível (referência: ilovepdf.com), menos ornamento
+
+## Próximas
+- [ ] Implementar anúncios (monetização) no site
