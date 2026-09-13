@@ -84,7 +84,8 @@ function Index() {
 
   return (
     <div className="paper-grain min-h-screen">
-      <div className="relative z-10 mx-auto max-w-3xl px-6 py-14">
+      <TopNav />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pb-14 pt-8">
         <header className="border-b border-border pb-8">
           <p className="text-sm font-semibold text-stamp">Edição local, sem servidores</p>
           <h1 className="mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
@@ -93,10 +94,6 @@ function Index() {
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Reduza o peso dos seus documentos sem sair do navegador. O arquivo nunca é enviado para
             nenhum servidor — todo o processamento acontece no seu próprio dispositivo.
-          </p>
-          <p className="mt-6 inline-flex items-center gap-2 border border-border px-3 py-2 text-sm font-medium">
-            <Lock className="h-3 w-3 text-stamp" aria-hidden />
-            100% no navegador
           </p>
         </header>
 
@@ -311,6 +308,31 @@ function Index() {
         </footer>
       </div>
     </div>
+  );
+}
+
+function TopNav() {
+  return (
+    <nav className="relative z-20 border-b border-border bg-background/90 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+        <a href="/" className="flex items-center gap-3">
+          <img
+            src="/favicon.svg"
+            alt=""
+            className="h-8 w-8"
+            width="32"
+            height="32"
+          />
+          <span className="text-xl font-semibold tracking-tight text-foreground">
+            Compressor de PDF
+          </span>
+        </a>
+        <span className="hidden items-center gap-2 text-sm font-medium text-muted-foreground sm:inline-flex">
+          <Lock className="h-3 w-3 text-stamp" aria-hidden />
+          100% no navegador
+        </span>
+      </div>
+    </nav>
   );
 }
 
