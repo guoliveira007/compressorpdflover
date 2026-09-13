@@ -88,7 +88,7 @@ function Index() {
       <div className="relative z-10 mx-auto max-w-3xl px-6 pb-14 pt-8">
         <header className="border-b border-border pb-8">
           <p className="text-sm font-semibold text-stamp">Edição local, sem servidores</p>
-          <h1 className="mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+          <h1 className="mt-4 text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl">
             Compressor de PDF
           </h1>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
