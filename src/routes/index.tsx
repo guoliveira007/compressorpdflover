@@ -37,7 +37,7 @@ function Index() {
   const [error, setError] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const preset: PresetId = PRESET_ORDER[presetIndex];
+  const preset: PresetId = PRESET_ORDER[presetIndex] ?? "balanced";
 
   const accept = useCallback((incoming: File | undefined | null) => {
     if (!incoming) return;
