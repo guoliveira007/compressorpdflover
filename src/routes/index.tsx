@@ -255,6 +255,12 @@ function Index() {
                     Começar de novo
                   </button>
                 </div>
+                {result.size >= file.size && (
+                  <p className="border-t border-border px-6 py-4 text-xs leading-relaxed text-muted-foreground">
+                    Este PDF já era muito otimizado (pouco conteúdo de imagem), então a versão
+                    comprimida ficou maior. Mantenha o arquivo original ou tente o nível Compacto.
+                  </p>
+                )}
                 <p className="border-t border-border px-6 py-4 font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
                   {result.pages} página(s) processada(s) localmente
                 </p>
