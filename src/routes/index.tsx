@@ -88,7 +88,7 @@ function Index() {
         <header className="border-b border-border pb-8">
           <p className="text-sm font-semibold text-stamp">Edição local, sem servidores</p>
           <h1 className="mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
-            Compressor de <span className="italic">PDF</span>
+            Compressor de PDF
           </h1>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Reduza o peso dos seus documentos sem sair do navegador. O arquivo nunca é enviado para
