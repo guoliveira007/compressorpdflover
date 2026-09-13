@@ -86,17 +86,15 @@ function Index() {
     <div className="paper-grain min-h-screen">
       <div className="relative z-10 mx-auto max-w-3xl px-6 py-14">
         <header className="border-b border-border pb-8">
-          <p className="font-mono text-[11px] tracking-[0.28em] text-stamp uppercase">
-            Edição local · sem servidores
-          </p>
+          <p className="text-sm font-semibold text-stamp">Edição local, sem servidores</p>
           <h1 className="mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
             Compressor de <span className="italic">PDF</span>
           </h1>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Reduza o peso dos seus documentos sem sair do navegador. O arquivo nunca é enviado para
             nenhum servidor — todo o processamento acontece no seu próprio dispositivo.
           </p>
-          <p className="mt-5 inline-flex items-center gap-2 border border-border px-3 py-1.5 font-mono text-[11px] tracking-wider uppercase">
+          <p className="mt-6 inline-flex items-center gap-2 border border-border px-3 py-2 text-sm font-medium">
             <Lock className="h-3 w-3 text-stamp" aria-hidden />
             100% no navegador
           </p>
@@ -122,12 +120,12 @@ function Index() {
               }`}
             >
               <Upload className="mx-auto h-6 w-6 text-stamp" aria-hidden />
-              <p className="mt-4 text-sm">Arraste um PDF para cá</p>
-              <p className="mt-1 text-xs text-muted-foreground">ou</p>
+              <p className="mt-4 text-lg font-medium">Arraste um PDF para cá</p>
+              <p className="mt-1 text-base text-muted-foreground">ou</p>
               <button
                 type="button"
                 onClick={() => inputRef.current?.click()}
-                className="mt-3 border border-foreground px-4 py-2 font-mono text-[11px] tracking-widest uppercase transition-colors hover:bg-foreground hover:text-primary-foreground"
+                className="mt-4 border border-foreground px-5 py-2.5 text-base font-medium transition-colors hover:bg-foreground hover:text-primary-foreground"
               >
                 Escolher arquivo
               </button>
@@ -142,11 +140,11 @@ function Index() {
 
             {file && (
               <div className="mt-4 flex items-center justify-between border border-border bg-card px-4 py-3">
-                <span className="flex min-w-0 items-center gap-3 text-sm">
+                <span className="flex min-w-0 items-center gap-3 text-base">
                   <FileText className="h-4 w-4 shrink-0 text-stamp" aria-hidden />
                   <span className="truncate">{file.name}</span>
                 </span>
-                <span className="ml-4 shrink-0 font-mono text-xs text-muted-foreground">
+                <span className="ml-4 shrink-0 text-base text-muted-foreground">
                   {formatBytes(file.size)}
                 </span>
               </div>
@@ -167,14 +165,14 @@ function Index() {
                 aria-label="Nível de compressão"
                 className="accent-stamp w-full"
               />
-              <div className="mt-3 grid grid-cols-3 font-mono text-[11px] tracking-widest uppercase">
+              <div className="mt-3 grid grid-cols-3 text-base font-medium">
                 {PRESET_ORDER.map((id, i) => (
                   <button
                     key={id}
                     type="button"
                     onClick={() => setPresetIndex(i)}
                     className={`py-1 ${i === 0 ? "text-left" : i === 1 ? "text-center" : "text-right"} ${
-                      presetIndex === i ? "text-stamp" : "text-muted-foreground"
+                      presetIndex === i ? "font-semibold text-stamp" : "text-muted-foreground"
                     }`}
                   >
                     {PRESETS[id].label}
@@ -186,7 +184,7 @@ function Index() {
                 <Metric label="Qualidade JPEG" value={`${Math.round(PRESETS[preset].quality * 100)}%`} />
                 <Metric label="Perfil" value={PRESETS[preset].note} mono={false} />
               </dl>
-              <p className="mt-5 border-l-2 border-stamp bg-secondary/60 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-5 border-l-2 border-stamp bg-secondary/60 px-4 py-3 text-base leading-relaxed text-muted-foreground">
                 Cada página é re-renderizada como uma imagem comprimida. Isso reduz bastante o
                 tamanho do arquivo, mas o texto deixa de ser selecionável e não poderá mais ser
                 pesquisado ou editado.
@@ -202,7 +200,7 @@ function Index() {
                 type="button"
                 disabled={!file || status === "working"}
                 onClick={run}
-                className="w-full bg-stamp px-6 py-4 font-mono text-xs tracking-[0.2em] text-stamp-foreground uppercase transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+                className="w-full bg-stamp px-6 py-4 text-lg font-semibold text-stamp-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {status === "working" ? "Comprimindo…" : "Comprimir PDF"}
               </button>
@@ -215,14 +213,14 @@ function Index() {
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <p className="mt-2 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
+                  <p className="mt-2 text-base text-muted-foreground">
                     Página {progress.done} de {progress.total || "—"} · {pct}%
                   </p>
                 </div>
               )}
 
               {error && (
-                <p className="border border-destructive px-4 py-3 text-sm text-destructive">{error}</p>
+                <p className="border border-destructive px-4 py-3 text-base text-destructive">{error}</p>
               )}
             </div>
           </section>
@@ -241,27 +239,27 @@ function Index() {
                   <a
                     href={result.url}
                     download={file.name.replace(/\.pdf$/i, "") + "-comprimido.pdf"}
-                    className="inline-flex items-center gap-2 bg-foreground px-5 py-3 font-mono text-[11px] tracking-widest text-primary-foreground uppercase"
+                    className="inline-flex items-center gap-2 bg-foreground px-6 py-3 text-base font-semibold text-primary-foreground"
                   >
-                    <Download className="h-3.5 w-3.5" aria-hidden />
+                    <Download className="h-4 w-4" aria-hidden />
                     Baixar PDF
                   </a>
                   <button
                     type="button"
                     onClick={reset}
-                    className="inline-flex items-center gap-2 border border-foreground px-5 py-3 font-mono text-[11px] tracking-widest uppercase transition-colors hover:bg-secondary"
+                    className="inline-flex items-center gap-2 border border-foreground px-6 py-3 text-base font-medium transition-colors hover:bg-secondary"
                   >
-                    <RotateCcw className="h-3.5 w-3.5" aria-hidden />
+                    <RotateCcw className="h-4 w-4" aria-hidden />
                     Começar de novo
                   </button>
                 </div>
                 {result.size >= file.size && (
-                  <p className="border-t border-border px-6 py-4 text-xs leading-relaxed text-muted-foreground">
+                  <p className="border-t border-border px-6 py-4 text-base leading-relaxed text-muted-foreground">
                     Este PDF já era muito otimizado (pouco conteúdo de imagem), então a versão
                     comprimida ficou maior. Mantenha o arquivo original ou tente o nível Compacto.
                   </p>
                 )}
-                <p className="border-t border-border px-6 py-4 font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
+                <p className="border-t border-border px-6 py-4 text-base text-muted-foreground">
                   {result.pages} página(s) processada(s) localmente
                 </p>
               </div>
@@ -270,8 +268,8 @@ function Index() {
 
           {/* SEO content */}
           <section className="border-t border-border pt-10">
-            <h2 className="text-3xl tracking-tight">Como funciona a compressão de PDF</h2>
-            <div className="mt-5 space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <h2 className="text-3xl font-semibold tracking-tight">Como funciona a compressão de PDF</h2>
+            <div className="mt-5 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 Um arquivo PDF costuma pesar mais do que precisa porque guarda imagens em alta
                 resolução, fontes incorporadas e dados de digitalização. A forma mais eficaz de
@@ -279,7 +277,7 @@ function Index() {
                 resolução para um valor adequado à leitura em tela e recodificar a imagem com
                 compressão JPEG, que descarta detalhes que o olho quase não percebe.
               </p>
-              <h3 className="pt-2 text-xl text-foreground">Privacidade por arquitetura</h3>
+              <h3 className="pt-2 text-xl font-semibold text-foreground">Privacidade por arquitetura</h3>
               <p>
                 Serviços tradicionais de compressão exigem o envio do documento para um servidor
                 remoto, onde ele é processado e armazenado por algum tempo. Aqui não existe esse
@@ -288,7 +286,7 @@ function Index() {
                 processamento do seu computador. Nada sai do dispositivo, o que torna a ferramenta
                 adequada para contratos, laudos, documentos pessoais e material confidencial.
               </p>
-              <h3 className="pt-2 text-xl text-foreground">Qual nível escolher</h3>
+              <h3 className="pt-2 text-xl font-semibold text-foreground">Qual nível escolher</h3>
               <p>
                 <strong className="text-foreground">Qualidade</strong> mantém alta resolução e é
                 indicada quando o PDF será impresso ou contém gráficos finos.{" "}
@@ -297,7 +295,7 @@ function Index() {
                 <strong className="text-foreground">Compacto</strong> prioriza o menor arquivo
                 possível, ideal para anexos com limite rígido de tamanho.
               </p>
-              <h3 className="pt-2 text-xl text-foreground">O que muda no arquivo final</h3>
+              <h3 className="pt-2 text-xl font-semibold text-foreground">O que muda no arquivo final</h3>
               <p>
                 Como cada página passa a ser uma imagem, o texto deixa de ser selecionável e
                 pesquisável, e formulários, links e anotações não são preservados. Se você precisa
@@ -308,8 +306,8 @@ function Index() {
           </section>
         </main>
 
-        <footer className="mt-14 border-t border-border pt-6 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
-          Processamento local · nenhum upload
+        <footer className="mt-14 border-t border-border pt-6 text-base text-muted-foreground">
+          Processamento local. Nenhum upload.
         </footer>
       </div>
     </div>
@@ -319,8 +317,8 @@ function Index() {
 function SectionTitle({ index, title }: { index: string; title: string }) {
   return (
     <div className="flex items-baseline gap-3 border-b border-border pb-2">
-      <span className="font-mono text-[11px] text-stamp">{index}</span>
-      <h2 className="text-xl tracking-tight">{title}</h2>
+      <span className="text-sm font-semibold text-stamp">{index}</span>
+      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
     </div>
   );
 }
@@ -340,11 +338,9 @@ function Metric({
 }) {
   return (
     <div className={pad ? "p-6" : ""}>
-      <dt className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-        {label}
-      </dt>
+      <dt className="text-sm font-medium text-muted-foreground">{label}</dt>
       <dd
-        className={`mt-1 ${mono ? "font-mono text-lg" : "text-sm"} ${
+        className={`mt-1 ${mono ? "text-2xl font-semibold" : "text-base"} ${
           accent ? "text-stamp" : "text-foreground"
         }`}
       >

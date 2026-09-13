@@ -62,8 +62,8 @@
   --color-stamp: var(--stamp);
   --color-stamp-foreground: var(--stamp-foreground);
   --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -150,11 +150,14 @@
     font-family: var(--font-sans);
   }
 
-  h1,
-  h2,
-  h3 {
+  h1 {
     font-family: var(--font-serif);
     font-weight: 400;
+  }
+
+  h2,
+  h3 {
+    font-family: var(--font-sans);
   }
 }
 
